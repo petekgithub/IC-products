@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   background: url("/assets/product_catalog_bg.png");
   color: #666666;
@@ -12,7 +16,7 @@ body {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Adjust as needed */
+  justify-content: space-between;
 }
 
 #logo {
@@ -39,11 +43,12 @@ p {
   width: 100%;
   height: 0px;
   border: 2px solid rgba(171, 184, 195, 0.5);
-  margin: 20px 0; /* Center the line horizontally and add some margin */
+  margin: 20px 0;
 }
 
 footer {
-  margin-top: 100px;
+  margin-top: 30px;
+  padding-top: 20px; /* Adjust this value as needed */
   padding-bottom: 30px;
   color: #999999;
   font-size: 12px;
@@ -51,8 +56,8 @@ footer {
 }
 
 .product-card {
-  width: calc(33.33% - 20px); /* Adjust for margin */
-  margin: 20px 0; /* Adjust as needed */
+  width: calc(33.33% - 20px);
+  margin: 20px 0;
   padding: 20px;
   background-color: #ffffff;
   border: 2px solid #e0e0e0;
@@ -72,19 +77,39 @@ footer {
 .product-card h2 {
   font-size: 1.5rem;
   margin-bottom: 10px;
+  color: #000000;
+  font-family: "Comic Sans MS", sans-serif;
+  text-align: center;
 }
 
 .product-card p {
   margin-bottom: 10px;
-}
-
-.product-card span {
-  font-weight: bold;
-  color: #4caf50;
-}
-
-#pagination {
-  width: 100%;
+  font-family: "Inter", sans-serif;
+  color: #000000;
   text-align: center;
-  margin-top: 20px;
+}
+
+#product-container #products {
+  margin-top: 50px;
+}
+
+/* pagination */
+#product-container #pagination {
+  margin-top: 50px;
+  text-align: right;
+}
+
+#product-container #pagination .pagination-link {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("/assets/pagination_cat1.png");
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center;
+}
+#product-container #pagination .pagination-link.hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 }

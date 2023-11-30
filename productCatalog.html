@@ -7,19 +7,21 @@
     <link rel="stylesheet" href="./styles/productCatalog-module.css" />
     <title>Product Catalog</title>
   </head>
+
   <body>
     <div class="container" id="product-container">
+      <img id="logo" alt="cat logo"/></a>
       <div>
-        <a href="/"><img id="logo" /></a>
+        <h1 id="title"></h1>
+        <hr class="line" />
+        <p id="desc">
+          Demos are a many and many are boring. Demo Cat is here to change that.
+          Thank you all my AI cat buddies 😻 and ChatGPT! Couldn’t have done it
+          without you!
+        </p>
+        <div id="products"></div>
+        <div id="pagination"></div>
       </div>
-      <h1 id="title"></h1>
-      <hr class="line" />
-      <p>
-        Demos are a many and many are boring. Demo Cat is here to change that.
-        Thank you all my AI cat buddies 😻 and ChatGPT! Couldn’t have done it
-        without you!
-      </p>
-      <div id="pagination"></div>
       <footer></footer>
     </div>
 
@@ -48,9 +50,9 @@
         .then((response) => (response.ok ? response.json() : Promise.reject()))
         .then((data) => {
           console.log(data);
-          document.getElementById("logo").src = data.globals.logo;
-          document.querySelector("footer").textContent = data.globals.footer;
-          document.getElementById("title").textContent = data.screen.title;
+          document.getElementById("logo").src = data.logo;
+          document.querySelector("footer").textContent = data.footer;
+          document.getElementById("title").textContent = data.title;
         })
         .catch((error) =>
           alert("Something went wrong, please try again later.")
@@ -58,7 +60,7 @@
 
       // Load the product lists and pagination
       fetch(
-        "https://www.includecore.com/api/projects/4854/databases/7334-Products",
+        "https://www.includecore.com/api/projects/4854/databases/7334-Products?pageSize=1&page=1",
         {
           method: "GET",
           headers: {
@@ -102,9 +104,28 @@
             productContainer.appendChild(productCard);
           });
 
-          // pagination
-          const pagination = document.getElementById("pagination");
-          // ..
+          // Pagination
+          const paginationContainer = document.getElementById("pagination");
+
+          // holds the total number of pages
+          const totalPages = data.pagination.last_page;
+
+          for (let i = 1; i <= totalPages; i++) {
+            // creates an a element for each page
+            const pageElement = document.createElement("a");
+
+            pageElement.textContent = i;
+
+            pageElement.classList.add("pagination-link", "hide-text");
+
+            // Add an event listener to handle page changes
+            pageElement.addEventListener("click", () => {
+              // Reload the page with the selected page parameter
+              window.location.href = `./productCatalog.html?page=${i}`;
+            });
+
+            paginationContainer.appendChild(pageElement);
+          }
         })
         .catch((error) =>
           alert("Something went wrong, please try again later.")
