@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/productCatalogStyle.css" />
+    <title>Product Catalog</title>
+  </head>
+  <body>
+    <div class="container">
+      <img class="logo" src="./assets/cat_logo.png" alt="cat logo" />
+      <h1>Product Catalogue</h1>
+      <div class="line"></div>
+      <p>
+        Demos are a many and many are boring. Demo Cat is here to change that.
+        Thank you all my AI cat buddies 😻 and ChatGPT! Couldn’t have done it
+        without you!
+      </p>
+
+      <div class="inner-container">
+        <div class="inner-card">
+          <img class="card-image" src="./assets/milo_mug.png" alt="cat mug" />
+          <h3 class="card-title">Milo Mug</h3>
+          <p class="card-desc">Lorem ipsum dolor sit amet</p>
+        </div>
+
+        <div class="inner-card">
+          <img class="card-image" src="./assets/milo_mug.png" alt="cat mug" />
+          <h3 class="card-title">Milo Mug</h3>
+          <p class="card-desc">Lorem ipsum dolor sit amet</p>
+        </div>
+
+        <div class="inner-card">
+          <img class="card-image" src="./assets/milo_mug.png" alt="cat mug" />
+          <h3 class="card-title">Milo Mug</h3>
+          <p class="card-desc">Lorem ipsum dolor sit amet</p>
+        </div>
+
+        <div class="inner-card">
+          <img class="card-image" src="./assets/milo_mug.png" alt="cat mug" />
+          <h3 class="card-title">Milo Mug</h3>
+          <p class="card-desc">Lorem ipsum dolor sit amet</p>
+        </div>
+
+        <div class="inner-card">
+          <img class="card-image" src="./assets/milo_mug.png" alt="cat mug" />
+          <h3 class="card-title">Milo Mug</h3>
+          <p class="card-desc">Lorem ipsum dolor sit amet</p>
+        </div>
+
+        <div class="inner-card">
+          <img class="card-image" src="./assets/milo_mug.png" alt="cat mug" />
+          <h3 class="card-title">Milo Mug</h3>
+          <p class="card-desc">Lorem ipsum dolor sit amet</p>
+        </div>
+      </div>
+
+      <div class="line"></div>
+      <div class="catFace">
+        <img src="./assets/pagination_cat1.png" alt="cat face" />
+        <img src="./assets/pagination_cat2.png" alt="cat face" />
+        <img src="./assets/pagination_cat2.png" alt="cat face" />
+      </div>
+
+      <div class="copywrite">©2023 Demo Cat. All rights reserved</div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const clickableCards = document.querySelectorAll(".inner-card");
+
+        clickableCards.forEach(function (card) {
+          card.addEventListener("click", function () {
+            window.location.href = "./productDetail.html";
+          });
+        });
+      });
+
+      fetch(
+        "https://www.includecore.com/api/projects/4854/databases/7320-productsDB",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      )
+        .then((response) => (response.ok ? response.json() : Promise.reject()))
+        .then((data) => {
+          // API response is an array of products - assume
+          data.forEach((product, index) => {
+            // Update the card with the corresponding product data
+            const card = document.querySelectorAll(".inner-card")[index];
+            const image = card.querySelector(".card-image");
+            const title = card.querySelector(".card-title");
+            const description = card.querySelector(".card-desc");
+
+            itemimage.src = product.image;
+            itemtitle.textContent = product.title; // itemtitle with the actual property name in my API response
+            itemdescription.textContent = product.description;
+          });
+        })
+        .catch((error) => console.error(error));
+    </script>
+  </body>
+</html>
