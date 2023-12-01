@@ -111,22 +111,18 @@
           for (let i = 1; i <= totalPages; i++) {
             // creates an a element for each page
             const pageElement = document.createElement("a");
+            pageElement.classList.add("pagination-image");
 
-            pageElement.textContent = i;
-
-            pageElement.classList.add("pagination-link", "hide-text");
-
-            // Add an event listener to handle page changes
-            pageElement.addEventListener("click", () => {
-              // Reload the page with the selected page parameter
-              window.location.href = `./productCatalog.html?page=${i}`;
-            });
-
+            if (i == productsPage) {
+              pageElement.classList.add("active");
+            } else {
+              pageElement.href = "/productDetail.html?page=" + i;
+            }
             paginationContainer.appendChild(pageElement);
           }
-        })
+         })
         .catch((error) =>
-          alert("Something went wrong, please try again later.")
+          alert("Error loading articles, please try again later.")
         );
     </script>
   </body>

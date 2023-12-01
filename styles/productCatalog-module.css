@@ -103,31 +103,22 @@ footer {
   text-align: right;
 }
 
-#product-container #pagination .pagination-link {
+#product-container #pagination .pagination-image {
   display: inline-block;
   width: 30px;
   height: 30px;
-  background-image: url("/assets/pagination_cat1.png");
+  background-image: url("/assets/pagination_cat2.png");
   background-repeat: no-repeat;
   background-size: 30px;
   background-position: center;
 }
-#product-container #pagination .pagination-link.hide-text {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
+#product-container #pagination .pagination-image.active {
+  background-image: url("/assets/pagination_cat1.png");
 }
 
-/* Added Clearfix for Container */
-.container::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/*responsive*/
+/* responsive
 @media (min-width: 992px) {
   .product-card > * {
     width: calc(100% / 3);
   }
-}
+} */
