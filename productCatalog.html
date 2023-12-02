@@ -25,111 +25,11 @@
       <section>
         <div id="products"></div>
       </section>
-      <section>
+      <section class="paginate-container">
         <div id="pagination"></div>
       </section>
     </main>
-    <footer></footer>
+    <footer id="footer"></footer>
     <script src="main.js"></script>
-    <script>
-      // Load the global items
-      fetch(
-        "https://www.includecore.com/api/projects/4854/globals/7319-globals",
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-          },
-        }
-      )
-        .then((response) => (response.ok ? response.json() : Promise.reject()))
-        .then((data) => {
-          console.log(data);
-          document.getElementById("logo").src = data.logo;
-          document.querySelector("footer").textContent = data.footer;
-          document.getElementById("title").textContent = data.title;
-        })
-        .catch((error) =>
-          alert("Something went wrong, please try again later.")
-        );
-
-      // Load the product lists and pagination
-
-      const productsPage =
-        new URL(window.location.href).searchParams.get("page") ?? 1;
-
-      fetch(
-        "https://www.includecore.com/api/projects/4854/databases/7334-Products?pageSize=3&page=" +
-          productsPage,
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-          },
-        }
-      )
-        .then((response) => (response.ok ? response.json() : Promise.reject()))
-        .then((data) => {
-          console.log(data);
-
-          const productContainer = document.getElementById("product-container");
-
-          // Loop through the product data and create HTML elements
-          // data.data.forEach((product) => {
-          //   // Set the products
-          //   const productDetailsLink = document.createElement("a");
-          //   productDetailsLink.href = "/productDetail.html?id=" + product.id;
-
-          //   const productCard = document.createElement("div");
-          //   productCard.classList.add("product-card");
-
-          //   const productImage = document.createElement("img");
-          //   productImage.src = product.products_list.product_image;
-          //   productImage.alt = product.products_list.product_image;
-
-          //   const productTitle = document.createElement("h2");
-          //   productTitle.textContent = product.products_list.product_title;
-
-          //   const productDesc = document.createElement("p");
-          //   productDesc.textContent =
-          //     product.products_list.product_description;
-
-          //   const productPrice = document.createElement("span");
-          //   productPrice.textContent =
-          //     "Price: £" + product.products_list.product_price;
-
-          //   // Append elements to the product card
-          //   productCard.appendChild(productImage);
-          //   productCard.appendChild(productTitle);
-          //   productCard.appendChild(productDesc);
-          //   productCard.appendChild(productPrice);
-
-          //   // Append the product card to the container
-          //   productContainer.appendChild(productCard);
-          // });
-
-          // Pagination
-          const paginationContainer = document.getElementById("pagination");
-
-          // holds the total number of pages
-          const totalPages = data.pagination.last_page;
-
-          for (let i = 1; i <= totalPages; i++) {
-            // creates an a element for each page
-            const pageElement = document.createElement("a");
-            pageElement.classList.add("pagination-image");
-
-            if (i == productsPage) {
-              pageElement.classList.add("active");
-            } else {
-              pageElement.href = "/productDetail.html?page=" + i;
-            }
-            paginationContainer.appendChild(pageElement);
-          }
-        })
-        .catch((error) =>
-          alert("Error loading articles, please try again later.")
-        );
-    </script>
   </body>
 </html>
