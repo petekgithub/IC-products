@@ -40,9 +40,15 @@ p {
   font-family: "Inter", sans-serif;
   line-height: 1.44;
 }
+
 .header-desc {
   max-width: 1000px;
   padding: 0 16px;
+}
+.product-card p {
+  height: 100px;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 .product-card {
@@ -79,6 +85,13 @@ p {
 
 #product-container #products {
   margin-top: 50px;
+}
+
+.paginate-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 25px;
+  direction: ltr;
 }
 
 #products {
@@ -118,7 +131,7 @@ footer {
 }
 
 /* responsive*/
-@media screen and (min-width: 850px) {
+@media screen and (max-width: 850px) {
   .product-card {
     width: 100%;
   }
