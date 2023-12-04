@@ -1,5 +1,7 @@
-const API_PRODUCTS_URL =
-  "https://www.includecore.com/api/projects/4854/databases/7334-Products";
+const currentPage = new URL(window.location.href).searchParams.get("page") ?? 1; // assign a define value a null
+
+const API_PRODUCTS_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products?pageSize=3&page=${currentPage}`;
+
 const API_HEADER_URL =
   "https://www.includecore.com/api/projects/4854/globals/7319-globals";
 
@@ -22,6 +24,7 @@ const fetchData = async (url) => {
 };
 
 // Render product list
+// change the every item to createElement !! for security reason
 const renderProductList = (data) => {
   productContainer.innerHTML = "";
   data.forEach((item) => {
@@ -37,38 +40,38 @@ const renderProductList = (data) => {
   });
 };
 
-// Render pagination
-const renderPaginate = (pages, activePage) => {
-  paginateItems.innerHTML = "";
-  pages.forEach((item, index) => {
-    const paginateTemplate = `
-      <button paginate="${index}">
-        <img src="/assets/${
-          Number(activePage) === index ? "active-paginate" : "paginate"
-        }.png" alt="" />
-      </button>
-    `;
-    paginateItems.insertAdjacentHTML("afterbegin", paginateTemplate);
-  });
-};
+// create a function for short desc. like show the first 10 text-char or somethinglike that
 
-// Event handling for pagination
-const handlePagination = (e) => {
-  const selectedPage = e.target.getAttribute("paginate");
-  loadProduct(selectedPage);
+// Render pagination
+const renderPaginate = (pagination) => {
+  const pageNumber = pagination.last_page;
+
+  for (let i = 1; i <= pageNumber; i++) {
+    const anchor = document.createElement("a");
+    anchor.href = `/productCatalog.html?page=${i}`;
+    const pageButton = document.createElement("button");
+    pageButton.textContent = i;
+    anchor.append(pageButton);
+    paginateItems.append(anchor);
+  }
 };
 
 // Load product data
 const loadProduct = async (page) => {
   const data = await fetchData(API_PRODUCTS_URL);
-  const pageSize = 6;
-  const pages = Array.from(
-    { length: Math.ceil(data.data.length / pageSize) },
-    (_, index) => data.data.slice(index * pageSize, (index + 1) * pageSize)
-  );
+  // const pageSize = 6;
+  // const pages = Array.from(
+  //   { length: Math.ceil(data.data.length / pageSize) },
+  //   (_, index) => data.data.slice(index * pageSize, (index + 1) * pageSize)
+  // );
 
-  renderProductList(pages[page]);
-  renderPaginate(pages, page);
+  //renderPaginate(pages, page);
+
+  const products = data.data;
+  renderProductList(products);
+
+  const pagination = data.pagination;
+  renderPaginate(pagination);
 };
 
 // Load header data
@@ -78,9 +81,6 @@ const loadHeader = async () => {
   footerEl.textContent = data.footer;
   titleEl.textContent = data.title;
 };
-
-// Set up event listener for pagination
-paginateItems.addEventListener("click", handlePagination);
 
 // Initial load
 loadProduct(0);
