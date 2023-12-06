@@ -3,7 +3,7 @@ const currentPage = new URL(window.location.href).searchParams.get("page") ?? 1;
 const API_PRODUCTS_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products?pageSize=3&page=${currentPage}`;
 
 const API_HEADER_URL =
-  "https://www.includecore.com/api/projects/4854/globals/7319-globals";
+  "https://www.includecore.com/api/projects/4854/databases/7334-Products";
 
 // Selectors
 const productContainer = document.querySelector("#products");
@@ -19,28 +19,47 @@ const fetchData = async (url) => {
     return await response.json();
   } catch (error) {
     console.error("Error fetching data:", error);
-    // Handle the error (e.g., display a message to the user)
   }
 };
 
 // Render product list
-// change the every item to createElement !! for security reason
 const renderProductList = (data) => {
   productContainer.innerHTML = "";
+
   data.forEach((item) => {
-    const productTemplate = `
-      <div class="product-card">
-        <img src="${item.products_list.product_image}" alt="product" />
-        <h2>${item.products_list.product_title}</h2>
-        <div class="desc-box">${item.products_list.product_description}</div>
-        <span>Price: ${item.products_list.product_price}</span>
-      </div>
-    `;
-    productContainer.insertAdjacentHTML("afterbegin", productTemplate);
+    // Create img element
+    const productImg = document.createElement("img");
+    productImg.src = item.img;
+    productImg.alt = "product img";
+
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+
+    const productTitle = document.createElement("h2");
+    productTitle.textContent = item.title;
+
+    const productDesc = document.createElement("div");
+    productDesc.classList.add("desc-box");
+    productDesc.textContent = item.desc;
+
+    const productPrice = document.createElement("span");
+    productPrice.textContent = item.price;
+
+    // Append elements to productCard
+    productCard.appendChild(productImg);
+    productCard.appendChild(productTitle);
+    productCard.appendChild(productDesc);
+    productCard.appendChild(productPrice);
+
+    // Append productCard to productContainer
+    productContainer.appendChild(productCard);
   });
 };
 
-// create a function for short desc. like show the first 10 text-char or somethinglike that
+// create a function for short desc. like show the first 10 text-char or somethinglike that (TASK)
+const showShortDesc = () => {};
+
+// click event for everyCard item (TASK)
 
 // Render pagination
 const renderPaginate = (pagination) => {
@@ -58,19 +77,12 @@ const renderPaginate = (pagination) => {
 
 // Load product data
 const loadProduct = async (page) => {
-  const data = await fetchData(API_PRODUCTS_URL);
-  // const pageSize = 6;
-  // const pages = Array.from(
-  //   { length: Math.ceil(data.data.length / pageSize) },
-  //   (_, index) => data.data.slice(index * pageSize, (index + 1) * pageSize)
-  // );
-
-  //renderPaginate(pages, page);
-
-  const products = data.data;
+  const result = await fetchData(API_PRODUCTS_URL);
+  const products = result.data;
+  //console.log("products comes from apı=", JSON.stringify(products));
   renderProductList(products);
 
-  const pagination = data.pagination;
+  const pagination = result.pagination;
   renderPaginate(pagination);
 };
 

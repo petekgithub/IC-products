@@ -97,7 +97,7 @@ p {
 #products {
   display: flex;
   flex-flow: wrap;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   gap: 8px;
 }
