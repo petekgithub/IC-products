@@ -1,38 +1,15 @@
-const currentPage = new URL(window.location.href).searchParams.get("page") ?? 1; // using ?? for prevent getting null when page render
-const productID = new URL(window.location.href).searchParams.get("id");
-
-const API_PRODUCTS_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products?pageSize=3&page=${currentPage}`;
-const API_SPESIFIC_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products/entries/id=${productID}`;
-
-const API_HEADER_URL =
-  "https://www.includecore.com/api/projects/4854/databases/7334-Products";
+import {
+  currentPage,
+  API_HEADER_URL,
+  API_PRODUCTS_URL,
+  fetchData,
+} from "./common.js";
 
 // Selectors
 const productContainer = document.querySelector("#products");
 const logoEl = document.getElementById("logo");
 const footerEl = document.getElementById("footer");
 const titleEl = document.getElementById("title");
-
-// Fetch data from API
-const fetchData = async (url) => {
-  try {
-    const response = await fetch(url);
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
-};
-
-// // Function to show a shortened description
-// const showShortDesc = (fullDesc, maxLength = 30) => {
-//   if (!fullDesc || fullDesc.length <= maxLength) {
-//     return fullDesc;
-//   }
-//   const shortDesc = fullDesc.substring(0, maxLength);
-//   const remainingDesc = fullDesc.substring(maxLength);
-
-//   return `${shortDesc}<span class="read-more" data-full-desc="${remainingDesc}">... Read more</span>`;
-// };
 
 // Render product list
 const renderProductList = (data) => {

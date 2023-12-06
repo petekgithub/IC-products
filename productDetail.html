@@ -5,40 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/productDetail-module.css" />
-    <title>Product Catalog</title>
+    <title>Product Detail Page</title>
+    <script src="/scripts/detail.js" defer type="module"></script>
   </head>
-  <body>
-    <img class="logo" src="./assets/cat_logo.png" alt="cat logo" />
-    <div class="back-button">
-      <button id="backBtn">< Back</button>
-    </div>
-    <div class="line"></div>
-    <div class="container">
-      <img class="product-image" src="./assets/milo_mug.png" alt="milo mug" />
-      <div class="text-container">
-        <span>Item Number</span>
-        <h2>Milo Mug</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptat.
-        </p>
-        <span class="price">€2.22</span>
-        <span class="ship">Incl. shipping</span>
-        <button class="availability">Inquire about availability</button>
-      </div>
-      <div class="line"></div>
-      <div class="copywrite">©2023 Demo Cat. All rights reserved</div>
-    </div>
 
-    <script>
-      const backButton = document.getElementById("backBtn");
-      backButton.addEventListener("click", function () {
-        // navigate to productCatalog.html
-        window.location.href = "productCatalog.html";
-      });
-    </script>
+  <body>
+    <header class="header">
+      <div class="header-inner">
+        <img id="logo" src="" alt="cat logo" />
+        <div class="back-button">
+          <button id="backBtn">< Back</button>
+        </div>
+        <div class="line"></div>
+      </div>
+    </header>
+
+    <main id="product-container">
+      <section class="left">
+        <div id="image"><img /></div>
+        <div id="pagination" class="pagination"></div>
+      </section>
+      <section class="right>
+        <div id="product-details"></div>
+      </section>
+    </main>
+
+    <footer id="footer"></footer>
   </body>
 </html>
