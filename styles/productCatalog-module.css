@@ -51,14 +51,32 @@ p {
   overflow-y: auto;
 }
 
+.desc-box.expanded {
+  overflow: visible; /* Or other styles for expanded state */
+}
+
 .product-card {
   width: 28%;
   margin: 20px 0;
   padding: 20px;
-  background-color: #29b162;
+  /* background-color: #29b162; */
   cursor: pointer;
 }
 
+.product-card .desc-box {
+  height: 100px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.product-card .desc-box.expanded {
+  height: auto;
+  overflow: visible;
+}
+.read-more {
+  display: inline-block;
+  cursor: pointer;
+}
 .product-card img {
   width: 260px;
   height: 350px;
@@ -80,6 +98,11 @@ p {
   overflow: hidden;
   overflow-y: auto;
 }
+
+.product-card span {
+  margin-top: 10px;
+}
+
 .desc-box p:nth-child(2) {
   display: none;
 }

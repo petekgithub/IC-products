@@ -1,6 +1,8 @@
 const currentPage = new URL(window.location.href).searchParams.get("page") ?? 1; // using ?? for prevent getting null when page render
+const productID = new URL(window.location.href).searchParams.get("id");
 
 const API_PRODUCTS_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products?pageSize=3&page=${currentPage}`;
+const API_SPESIFIC_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products/entries/id=${productID}`;
 
 const API_HEADER_URL =
   "https://www.includecore.com/api/projects/4854/databases/7334-Products";
@@ -21,6 +23,17 @@ const fetchData = async (url) => {
   }
 };
 
+// // Function to show a shortened description
+// const showShortDesc = (fullDesc, maxLength = 30) => {
+//   if (!fullDesc || fullDesc.length <= maxLength) {
+//     return fullDesc;
+//   }
+//   const shortDesc = fullDesc.substring(0, maxLength);
+//   const remainingDesc = fullDesc.substring(maxLength);
+
+//   return `${shortDesc}<span class="read-more" data-full-desc="${remainingDesc}">... Read more</span>`;
+// };
+
 // Render product list
 const renderProductList = (data) => {
   productContainer.innerHTML = "";
@@ -34,7 +47,7 @@ const renderProductList = (data) => {
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
 
-    // click event for ecah product card
+    // click event for eah product card
     productCard.addEventListener("click", () => {
       window.location.href = `/productDetail.html?id=${item.id}`;
     });
@@ -44,7 +57,9 @@ const renderProductList = (data) => {
 
     const productDesc = document.createElement("div");
     productDesc.classList.add("desc-box");
-    productDesc.textContent = item.desc;
+    productDesc.textContent = item.short_desc;
+
+    // just for long desc. => innerHTML
 
     const productPrice = document.createElement("span");
     productPrice.textContent = item.price;
@@ -59,10 +74,6 @@ const renderProductList = (data) => {
     productContainer.appendChild(productCard);
   });
 };
-
-// (TASK) create a function for short desc. like show the first 10 text-char or somethinglike that
-const showShortDesc = () => {};
-// (TASK) click event for everyCard item
 
 // Render pagination
 const renderPaginate = (pagination) => {
