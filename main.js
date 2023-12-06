@@ -1,4 +1,4 @@
-const currentPage = new URL(window.location.href).searchParams.get("page") ?? 1; // assign a define value a null
+const currentPage = new URL(window.location.href).searchParams.get("page") ?? 1; // using ?? for prevent getting null when page render
 
 const API_PRODUCTS_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products?pageSize=3&page=${currentPage}`;
 
@@ -10,7 +10,6 @@ const productContainer = document.querySelector("#products");
 const logoEl = document.getElementById("logo");
 const footerEl = document.getElementById("footer");
 const titleEl = document.getElementById("title");
-const paginateItems = document.getElementById("pagination");
 
 // Fetch data from API
 const fetchData = async (url) => {
@@ -56,22 +55,26 @@ const renderProductList = (data) => {
   });
 };
 
-// create a function for short desc. like show the first 10 text-char or somethinglike that (TASK)
+// (TASK) create a function for short desc. like show the first 10 text-char or somethinglike that
 const showShortDesc = () => {};
-
-// click event for everyCard item (TASK)
+// (TASK) click event for everyCard item
 
 // Render pagination
 const renderPaginate = (pagination) => {
   const pageNumber = pagination.last_page;
+  const paginationContainer = document.getElementById("pagination");
 
   for (let i = 1; i <= pageNumber; i++) {
-    const anchor = document.createElement("a");
-    anchor.href = `/productCatalog.html?page=${i}`;
-    const pageButton = document.createElement("button");
-    pageButton.textContent = i;
-    anchor.append(pageButton);
-    paginateItems.append(anchor);
+    const pageNumberLink = document.createElement("a");
+    pageNumberLink.classList.add("pagination-link");
+
+    if (i == currentPage) {
+      pageNumberLink.classList.add("active");
+    } else {
+      pageNumberLink.href = `/productCatalog.html?page=${i}`;
+    }
+
+    paginationContainer.appendChild(pageNumberLink);
   }
 };
 
@@ -79,7 +82,6 @@ const renderPaginate = (pagination) => {
 const loadProduct = async (page) => {
   const result = await fetchData(API_PRODUCTS_URL);
   const products = result.data;
-  //console.log("products comes from apı=", JSON.stringify(products));
   renderProductList(products);
 
   const pagination = result.pagination;
