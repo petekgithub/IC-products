@@ -34,6 +34,11 @@ const renderProductList = (data) => {
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
 
+    // click event for ecah product card
+    productCard.addEventListener("click", () => {
+      window.location.href = `/productDetail.html?id=${item.id}`;
+    });
+
     const productTitle = document.createElement("h2");
     productTitle.textContent = item.title;
 
