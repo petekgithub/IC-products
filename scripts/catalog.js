@@ -36,8 +36,6 @@ const renderProductList = (data) => {
     productDesc.classList.add("desc-box");
     productDesc.textContent = item.short_desc;
 
-    // just for long desc. => innerHTML
-
     const productPrice = document.createElement("span");
     productPrice.textContent = item.price;
 
@@ -90,5 +88,5 @@ const loadHeader = async () => {
 };
 
 // Initial load
-loadProduct(0);
 loadHeader();
+loadProduct(0);

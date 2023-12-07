@@ -6,111 +6,31 @@ body {
   background: url("/assets/product_catalog_bg.png");
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* %50 - %50 grid structure */
-  gap: 47px;
+.product-card {
+  width: 28%;
+  margin: 20px 0;
   padding: 20px;
-}
-
-.container img {
-  width: 629px;
-  height: 649.37px;
-  background-color: #fff;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #a0a0a0;
-}
-
-.text-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.text-container h2 {
-  width: 672px;
-  color: #000;
-  font-size: 32px;
-  font-weight: 400;
-  font-family: "Comic Sans MS", cursive;
-  line-height: 51.2px;
-}
-
-.text-container p {
-  width: 672px;
-  color: #000;
-  font-size: 16px;
-  font-weight: 400;
-  font-family: "Inter", sans-serif;
-}
-
-.text-container button {
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
+  /* background-color: #29b162; */
   cursor: pointer;
 }
-
-.price {
-  width: 437.79px;
-  color: rgba(219, 68, 144, 0.9);
-  font-size: 32px;
-  font-weight: 400;
-  font-family: "Comic Sans MS", cursive;
-  line-height: 51.2px;
-}
-.ship {
-  width: 734px;
-  color: #000;
-  font-size: 16px;
-  font-weight: 400;
-  font-family: "Inter", sans-serif;
-  line-height: 28.8px;
-}
-
-button.availability {
-  width: 253px;
-  height: 60px;
-  padding: 2px 5px;
-  background-color: rgba(219, 68, 144, 1); /* 'bg-fuchsia-500'  */
-  border-radius: 90px;
-  border-width: 2px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2px;
-  text-align: center;
-  color: #fff;
-  font-size: 14px;
-  font-weight: bold;
-  font-family: "Comic Sans MS", cursive;
-  line-height: 7;
-  border: none;
-  cursor: pointer;
-}
-
-.product-image {
+.product-card img {
+  width: 260px;
+  height: 350px;
+  border-radius: 4px;
+  margin-bottom: 10px;
   width: 100%;
-  border: 1px solid #999;
-  border-radius: 6px;
-  max-width: 500px;
+  object-fit: cover;
 }
-.back-button {
-  border-bottom: 1px solid #acacac;
-  padding-bottom: 16px;
-  margin-bottom: 16px;
-}
-.back-button button {
-  padding: 0;
-  border: 0;
-  margin: 0;
-  background: unset;
-  font-size: 14px;
-  font-weight: 700;
-  margin-left: 19px;
-  margin-top: 15px;
-  cursor: pointer;
+
+.product-card h2 {
+  margin-bottom: 10px;
+  color: #000000;
+  font-family: "Comic Sans MS", sans-serif;
+  text-align: center;
+  /* width: 437.79px; */
+  font-size: 32px;
+  line-height: 51.2px;
+  height: 100px;
+  overflow: hidden;
+  overflow-y: auto;
 }
