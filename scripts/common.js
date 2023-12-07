@@ -5,6 +5,7 @@ export const productID = new URL(window.location.href).searchParams.get("id");
 export const currentPage =
   new URL(window.location.href).searchParams.get("page") ?? 1; // ?? is used to avoid getting null when creating a page.
 const articleId = new URL(window.location.href).searchParams.get("id");
+
 // APIs
 export const API_HEADER_URL =
   "https://www.includecore.com/api/projects/4854/globals/7319-globals";

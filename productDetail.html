@@ -9,7 +9,7 @@
     <script src="/scripts/detail.js" defer type="module"></script>
   </head>
 
-  <body>
+  <body class="container">
     <header class="header">
       <div class="header-inner">
         <img id="logo" src="" alt="cat logo" />
@@ -20,12 +20,15 @@
       </div>
     </header>
 
-    <main id="product-container">
-      <section class="left">
+    <main id="product-container" class="container flex-container">
+      <section class="product-image-section">
         <div id="pagination" class="pagination"></div>
       </section>
-      <section class="right">
+      <section class="product-details-section">
         <div id="product-details"></div>
+        <div class="button-container">
+          <button class="button-text">Inquire about availability</button>
+        </div>
       </section>
     </main>
 

@@ -7,17 +7,19 @@ import {
 
 // Selectors
 const productContainer = document.querySelector("#product-details");
+const productImage = document.querySelector(".product-image-section");
 const logoEl = document.getElementById("logo");
 const footerEl = document.getElementById("footer");
 
 const renderProductDetails = (data) => {
   productContainer.innerHTML = "";
+  productImage.innerHTML = "";
 
   const productImg = document.createElement("img");
   productImg.src = data.img;
   productImg.alt = "product img";
 
-  // general div
+  // general div for product details
   const productCard = document.createElement("div");
   productCard.classList.add("product-card");
 
@@ -38,7 +40,7 @@ const renderProductDetails = (data) => {
   productShipping.textContent = data.shipping;
 
   // Append elements to productCard
-  productCard.appendChild(productImg);
+  productImage.appendChild(productImg);
   productCard.appendChild(productNumber);
   productCard.appendChild(productTitle);
   productCard.appendChild(productDesc);
