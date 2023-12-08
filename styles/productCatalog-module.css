@@ -9,23 +9,19 @@ body {
   font-size: 16px;
   line-height: 170%;
 }
-
 .header-inner {
   padding-left: 20px;
   padding-right: 20px;
 }
-
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
-
 #logo {
   width: 57px;
   height: 57px;
 }
-
 #title {
   color: rgba(255, 0, 255, 0.9);
   font-size: 50px;
@@ -33,7 +29,6 @@ body {
   line-height: 64px;
   margin-top: 115px;
 }
-
 p {
   color: #000000;
   font-size: clamp(1.125rem, 1.25rem + 3vw, 1.375rem);
@@ -41,7 +36,6 @@ p {
   font-family: "Inter", sans-serif;
   line-height: 1.44;
 }
-
 .header-desc {
   max-width: 1000px;
 }
@@ -50,17 +44,14 @@ p {
   overflow: hidden;
   overflow-y: auto;
 }
-
 .desc-box.expanded {
   overflow: visible; 
 }
-
 .product-card {
   width: 28%;
   margin: 20px 0;
   cursor: pointer;
 }
-
 .product-card .desc-box {
   height: 100px;
   overflow: hidden;
@@ -68,7 +59,6 @@ p {
   text-align: center;
   font-family: "Inter";
 }
-
 .product-card .desc-box.expanded {
   height: auto;
   overflow: visible;
@@ -93,7 +83,6 @@ p {
   padding-top: 70px;
   padding-bottom: 35px;
 }
-
 .product-card h2 {
   margin-bottom: 10px;
   color: #000000;
@@ -105,26 +94,21 @@ p {
   overflow: hidden;
   overflow-y: auto;
 }
-
 .product-card span {
   margin-top: 10px;
 }
-
 .desc-box p:nth-child(2) {
   display: none;
 }
-
 #product-container #products {
   margin-top: 50px;
 }
-
 #products {
   display: flex;
   flex-flow: wrap;
   justify-content: space-between;
   gap: 35px;
 }
-
 .paginate-container {
   display: flex;
   justify-content: center;
@@ -132,16 +116,13 @@ p {
   flex-direction: row;
   justify-content: flex-end;
 }
-
 .pagination {
   display: flex;
   gap: 8px;
 }
-
 #product-container {
   padding: 0 20px;
 }
-
 .pagination-link {
   display: inline-block;
   width: 30px;
@@ -151,11 +132,9 @@ p {
   background-size: 30px;
   background-position: center;
 }
-
 .pagination-link.active {
   background-image: url("/assets/active-paginate.png");
 }
-
 .line {
   display: flex;
   justify-content: center;
@@ -165,7 +144,6 @@ p {
   height: 2px;
   margin: 24px 0;
 }
-
 footer {
   margin-top: auto;
   padding-top: 20px;

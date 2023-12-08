@@ -17,8 +17,9 @@ const renderProductDetails = (data) => {
   productImage.innerHTML = "";
 
   const productImg = document.createElement("img");
-  productImg.src = data.img;
+  productImg.src = data.img[0];
   productImg.alt = "product img";
+  productImg.classList.add("product-img");
 
   // general div for product details
   const productCard = document.createElement("div");
@@ -39,6 +40,7 @@ const renderProductDetails = (data) => {
   productNumber.textContent = data.item_num;
 
   const productShipping = document.createElement("span");
+  productShipping.classList.add("shipping");
   productShipping.textContent = data.shipping;
 
   // Append elements to productCard
