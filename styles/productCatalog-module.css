@@ -22,7 +22,6 @@ body {
 #logo {
   width: 57px;
   height: 57px;
-  padding: 0 16px;
 }
 
 #title {
@@ -30,7 +29,6 @@ body {
   font-size: 50px;
   font-family: "Comic Sans MS", sans-serif;
   line-height: 64px;
-  padding: 0 16px;
 }
 
 p {
@@ -43,12 +41,16 @@ p {
 
 .header-desc {
   max-width: 1000px;
-  padding: 0 16px;
 }
 .product-card p {
   height: 100px;
   overflow: hidden;
   overflow-y: auto;
+}
+
+.header-inner {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .desc-box.expanded {
