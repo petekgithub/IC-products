@@ -75,7 +75,7 @@ const loadProduct = async (page) => {
   const products = result.data.data;
   renderProductList(products);
 
-  const pagination = result.pagination;
+  const pagination = result.data.pagination;
   renderPaginate(pagination);
 };
 

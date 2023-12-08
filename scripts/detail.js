@@ -53,6 +53,25 @@ const renderProductDetails = (data) => {
   productContainer.appendChild(productCard);
 };
 
+// Render pagination
+const renderPaginate = (pagination) => {
+  const pageNumber = pagination.last_page;
+  const paginationContainer = document.getElementById("pagination");
+
+  for (let i = 1; i <= pageNumber; i++) {
+    const pageNumberLink = document.createElement("a");
+    pageNumberLink.classList.add("pagination-link");
+
+    if (i == currentPage) {
+      pageNumberLink.classList.add("active");
+    } else {
+      pageNumberLink.href = `/productCatalog.html?page=${i}`;
+    }
+
+    paginationContainer.appendChild(pageNumberLink);
+  }
+};
+
 // load product-details
 const loadDetails = async (page) => {
   try {
@@ -62,6 +81,8 @@ const loadDetails = async (page) => {
     if (details) {
       //console.log("details=", details);
       renderProductDetails(details);
+      const pagination = result.pagination;
+      renderPaginate(pagination);
     } else {
       console.error("Error loading details: Data is undefined");
     }
