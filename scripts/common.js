@@ -13,7 +13,7 @@ export const API_HEADER_URL =
 //export const API_DETAILS_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products/entries/id=${productID}`;
 export const API_DETAILS_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products/entries/9342`;
 
-export const API_PRODUCTS_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products?pageSize=3&page=${currentPage}`;
+export const API_PRODUCTS_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products?pageSize=6&page=${currentPage}`;
 
 // Fetch data from API
 export const fetchData = async (url) => {

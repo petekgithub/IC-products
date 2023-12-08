@@ -17,14 +17,22 @@ const renderProductList = (data) => {
 
   data.forEach((item) => {
     // Create img element
+
+    const imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+
     const productImg = document.createElement("img");
     productImg.src = item.img;
     productImg.alt = "product img";
 
+    // append img to imageContainer
+    imageContainer.appendChild(productImg);
+
+
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
 
-    // click event for eah product card
+    // click event for each product card
     productCard.addEventListener("click", () => {
       window.location.href = `/productDetail.html?id=${item.id}`;
     });
@@ -36,14 +44,11 @@ const renderProductList = (data) => {
     productDesc.classList.add("desc-box");
     productDesc.textContent = item.short_desc;
 
-    const productPrice = document.createElement("span");
-    productPrice.textContent = item.price;
 
     // Append elements to productCard
-    productCard.appendChild(productImg);
+    productCard.appendChild(imageContainer);
     productCard.appendChild(productTitle);
     productCard.appendChild(productDesc);
-    productCard.appendChild(productPrice);
 
     // Append productCard to productContainer
     productContainer.appendChild(productCard);
