@@ -68,6 +68,7 @@ p {
   overflow: hidden;
   overflow-y: auto;
   text-align: center;
+  font-family: "Inter";
 }
 
 .product-card .desc-box.expanded {
