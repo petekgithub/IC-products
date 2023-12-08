@@ -39,6 +39,7 @@ const renderProductDetails = (data) => {
   productNumber.textContent = data.item_num;
 
   const productShipping = document.createElement("span");
+  productShipping.classList.add("shipping");
   productShipping.textContent = data.shipping;
 
   // Append elements to productCard

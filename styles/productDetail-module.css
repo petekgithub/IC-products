@@ -30,9 +30,7 @@ body {
 }
 
 .product-details-section {
-  /* flex: 2; */
   padding: 20px;
-  border: 5px solid black;
 }
 
 .button-container {
@@ -46,6 +44,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 2px;
+  margin-top: 54px;
 }
 
 .button-text {
@@ -54,10 +53,11 @@ body {
   font-weight: bold;
   font-family: "Comic Sans MS", sans-serif;
   line-height: 1.5;
+  color: #ffffff;
 }
 
 .back-button {
-  width: 672px;
+  margin-top: 115px;
   text-align: left;
 }
 
@@ -65,9 +65,11 @@ body {
   background-color: transparent;
   color: #000000;
   padding: 10px 0;
-  font-size: 16px;
+  font-size: 26px;
   border: none;
   cursor: pointer;
+  font-weight: 600;
+  font-family: "Comic Sans MS", sans-serif;
 }
 .line {
   display: flex;
@@ -136,4 +138,11 @@ footer {
 
 .pagination-link.active {
   background-image: url("/assets/active-paginate.png");
+}
+
+.price {
+  color: #ff21fb;
+  font-family: "Comic Sans MS", sans-serif;
+  font-size: 32px;
+  margin-top: 60px;
 }
