@@ -12,13 +12,28 @@ const logoEl = document.getElementById("logo");
 const footerEl = document.getElementById("footer");
 const backBtn = document.getElementById("backBtn");
 
+// {
+//     "id": 9342,
+//     "title": "Cat mug",
+//     "price": 13.44,
+//     "desc": "<p>Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet. Lorem <strong>ipsum<\/strong> dolor sit amet.\u00a0<\/p>",
+//     "img": {
+//         "product_img1": "https:\/\/www.includecore.com\/api\/media?file=4ejgdOE9Zvw4UsHSkg8eyyHDqgfWbea1HzTz2Uwx.png",
+//         "product_img2": "https:\/\/www.includecore.com\/api\/media?file=23LRKoVdEyba0fLcRTjkSIEfT1foxb7RSsHYJty1.png"
+//     },
+//     "shipping": "Free",
+//     "short_desc": "Short DescriptionShort DescriptionShort DescriptionShort DescriptionShort DescriptionShort DescriptionShort DescriptionShort Description",
+//     "item_num": 1
+// }
+
 const renderProductDetails = (data) => {
   productContainer.innerHTML = "";
   productImage.innerHTML = "";
 
   const productImg = document.createElement("img");
-  productImg.src = data.img;
+  productImg.src = data.img[0];
   productImg.alt = "product img";
+  productImg.classList.add("product-img");
 
   // general div for product details
   const productCard = document.createElement("div");
@@ -84,6 +99,22 @@ const loadDetails = async (page) => {
       renderProductDetails(details);
       const pagination = result.pagination;
       renderPaginate(pagination);
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 3,
+          },
+          1000: {
+            items: 5,
+          },
+        },
+      });
     } else {
       console.error("Error loading details: Data is undefined");
     }
