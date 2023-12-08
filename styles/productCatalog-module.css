@@ -29,6 +29,7 @@ body {
   font-size: 50px;
   font-family: "Comic Sans MS", sans-serif;
   line-height: 64px;
+  margin-top: 115px;
 }
 
 p {
@@ -178,6 +179,8 @@ footer {
   color: #999999;
   font-size: 12px;
   letter-spacing: 0.1em;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* responsive*/
