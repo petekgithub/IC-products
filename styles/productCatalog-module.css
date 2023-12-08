@@ -60,7 +60,6 @@ p {
 .product-card {
   width: 28%;
   margin: 20px 0;
-  padding: 20px;
   /* background-color: #29b162; */
   cursor: pointer;
 }
@@ -127,7 +126,7 @@ p {
   display: flex;
   flex-flow: wrap;
   /* align-items: center; */
-  justify-content: center;
+  justify-content: space-between;
   gap: 35px;
 }
 
@@ -142,6 +141,10 @@ p {
 .pagination {
   display: flex;
   gap: 8px;
+}
+
+#product-container {
+  padding: 0 20px;
 }
 
 .pagination-link {
