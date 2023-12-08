@@ -34,7 +34,7 @@ const renderProductDetails = (data) => {
 
   const productPrice = document.createElement("div");
   productPrice.classList.add("price");
-  productPrice.textContent = data.price;
+  productPrice.textContent = `€ ${data.price}`;
 
   const productNumber = document.createElement("span");
   productNumber.textContent = data.item_num;
