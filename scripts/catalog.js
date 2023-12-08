@@ -72,7 +72,7 @@ const renderPaginate = (pagination) => {
 // Load product data
 const loadProduct = async (page) => {
   const result = await fetchData(API_PRODUCTS_URL);
-  const products = result.data;
+  const products = result.data.data;
   renderProductList(products);
 
   const pagination = result.pagination;
@@ -82,9 +82,9 @@ const loadProduct = async (page) => {
 // Load header data
 const loadHeader = async () => {
   const data = await fetchData(API_HEADER_URL);
-  logoEl.src = data.logo;
-  footerEl.textContent = data.footer;
-  titleEl.textContent = data.title;
+  logoEl.src = data.data.logo;
+  footerEl.textContent = data.data.footer;
+  titleEl.textContent = data.data.title;
 };
 
 // Initial load

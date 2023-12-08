@@ -157,7 +157,7 @@ p {
 }
 
 footer {
-  margin-top: auto; /* Adjusted margin-top to push footer to the bottom */
+  margin-top: auto;
   padding-top: 20px;
   padding-bottom: 30px;
   color: #999999;

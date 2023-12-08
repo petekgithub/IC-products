@@ -10,6 +10,7 @@ const productContainer = document.querySelector("#product-details");
 const productImage = document.querySelector(".product-image-section");
 const logoEl = document.getElementById("logo");
 const footerEl = document.getElementById("footer");
+const backBtn = document.getElementById("backBtn");
 
 const renderProductDetails = (data) => {
   productContainer.innerHTML = "";
@@ -30,7 +31,8 @@ const renderProductDetails = (data) => {
   const productDesc = document.createElement("div");
   productDesc.innerHTML = data.desc;
 
-  const productPrice = document.createElement("span");
+  const productPrice = document.createElement("div");
+  productPrice.classList.add("price");
   productPrice.textContent = data.price;
 
   const productNumber = document.createElement("span");
@@ -58,7 +60,7 @@ const loadDetails = async (page) => {
     const details = result.data;
 
     if (details) {
-      console.log("details=", details);
+      //console.log("details=", details);
       renderProductDetails(details);
     } else {
       console.error("Error loading details: Data is undefined");
@@ -68,11 +70,17 @@ const loadDetails = async (page) => {
   }
 };
 
+// Event listener for the back button
+backBtn.addEventListener("click", () => {
+  // Navigate to the productCatalog.html page
+  window.location.href = "/productCatalog.html";
+});
+
 // Load header data
 const loadHeader = async () => {
   const data = await fetchData(API_HEADER_URL);
-  logoEl.src = data.logo;
-  footerEl.textContent = data.footer;
+  logoEl.src = data.data.logo;
+  footerEl.textContent = data.data.footer;
 };
 
 // Initial load

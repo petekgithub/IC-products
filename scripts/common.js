@@ -9,6 +9,7 @@ const articleId = new URL(window.location.href).searchParams.get("id");
 // APIs
 export const API_HEADER_URL =
   "https://www.includecore.com/api/projects/4854/globals/7319-globals";
+
 //export const API_DETAILS_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products/entries/id=${productID}`;
 export const API_DETAILS_URL = ` https://www.includecore.com/api/projects/4854/databases/7334-Products/entries/9335`;
 

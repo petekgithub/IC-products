@@ -78,3 +78,36 @@ body {
   height: 2px;
   margin: 24px 0;
 }
+.product-card h2 {
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 10px;
+  color: #000000;
+  font-family: "Comic Sans MS", sans-serif;
+  line-height: 1.2;
+}
+/* .product-card div {
+  width: 672px;
+  color: black;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: "Inter", sans-serif;
+  line-height: 28.8px;
+} */
+.product-card.price {
+  width: 437.79px;
+  color: #ff21fb;
+  opacity: 0.9;
+  font-size: 32px;
+  font-weight: normal;
+  font-family: "Comic Sans MS", sans-serif;
+  line-height: 51.2px;
+}
+footer {
+  margin-top: auto;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  color: #999999;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
