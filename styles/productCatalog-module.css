@@ -84,6 +84,9 @@ p {
   margin-bottom: 10px;
   width: 100%;
   object-fit: cover;
+  background: white;
+  padding: 20px;
+  border: 2px solid #b1b1b1;
 }
 
 .product-card h2 {
@@ -116,7 +119,7 @@ p {
   flex-flow: wrap;
   /* align-items: center; */
   justify-content: center;
-  gap: 8px;
+  gap: 35px;
 }
 
 .paginate-container {
