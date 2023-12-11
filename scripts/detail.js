@@ -4,24 +4,20 @@ import {
   API_DETAILS_URL,
   fetchData,
 } from "./common.js";
+import { createSlider } from "./slider.js";
 
 // Selectors
 const productContainer = document.querySelector("#product-details");
-const productImage = document.querySelector(".product-image-section");
 const logoEl = document.getElementById("logo");
 const footerEl = document.getElementById("footer");
 const backBtn = document.getElementById("backBtn");
 
 const renderProductDetails = (data) => {
   productContainer.innerHTML = "";
-  productImage.innerHTML = "";
 
-  const productImg = document.createElement("img");
-  productImg.src = data.img[0];
-  productImg.alt = "product img";
-  productImg.classList.add("product-img");
+  createSlider(data, ".product-image-section", "main_pictures_buttons");
 
-  // general div for product details
+  // General div for product details
   const productCard = document.createElement("div");
   productCard.classList.add("product-card");
 
@@ -44,7 +40,7 @@ const renderProductDetails = (data) => {
   productShipping.textContent = data.shipping;
 
   // Append elements to productCard
-  productImage.appendChild(productImg);
+  //productImage.appendChild(productImg);
   productCard.appendChild(productNumber);
   productCard.appendChild(productTitle);
   productCard.appendChild(productDesc);
@@ -55,36 +51,14 @@ const renderProductDetails = (data) => {
   productContainer.appendChild(productCard);
 };
 
-// Render pagination
-const renderPaginate = (pagination) => {
-  const pageNumber = pagination.last_page;
-  const paginationContainer = document.getElementById("pagination");
-
-  for (let i = 1; i <= pageNumber; i++) {
-    const pageNumberLink = document.createElement("a");
-    pageNumberLink.classList.add("pagination-link");
-
-    if (i == currentPage) {
-      pageNumberLink.classList.add("active");
-    } else {
-      pageNumberLink.href = `/productCatalog.html?page=${i}`;
-    }
-
-    paginationContainer.appendChild(pageNumberLink);
-  }
-};
-
 // load product-details
-const loadDetails = async (page) => {
+const loadDetails = async () => {
   try {
     const result = await fetchData(API_DETAILS_URL);
     const details = result.data;
 
     if (details) {
-      //console.log("details=", details);
       renderProductDetails(details);
-      const pagination = result.pagination;
-      renderPaginate(pagination);
     } else {
       console.error("Error loading details: Data is undefined");
     }
@@ -108,4 +82,4 @@ const loadHeader = async () => {
 
 // Initial load
 loadHeader();
-loadDetails(0);
+loadDetails();

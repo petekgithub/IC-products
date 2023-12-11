@@ -28,7 +28,6 @@ const renderProductList = (data) => {
     // append img to imageContainer
     imageContainer.appendChild(productImg);
 
-
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
 
@@ -43,7 +42,6 @@ const renderProductList = (data) => {
     const productDesc = document.createElement("div");
     productDesc.classList.add("desc-box");
     productDesc.textContent = item.short_desc;
-
 
     // Append elements to productCard
     productCard.appendChild(imageContainer);

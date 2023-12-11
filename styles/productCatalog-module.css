@@ -45,7 +45,7 @@ p {
   overflow-y: auto;
 }
 .desc-box.expanded {
-  overflow: visible; 
+  overflow: visible;
 }
 .product-card {
   width: 28%;
@@ -76,7 +76,7 @@ p {
   object-fit: cover;
 }
 
-.image-container{
+.image-container {
   background: white;
   padding: 15px;
   border: 2px solid #b1b1b1;
