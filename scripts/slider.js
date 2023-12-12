@@ -10,6 +10,7 @@ export const createSlider = (data, targetImage, targetButtons) => {
     pictureElement.classList.add("slider-picture", "none");
     pictureElement.setAttribute("data-index", index);
 
+    
     const buttonElement = document.createElement("button");
     buttonElement.classList = "slider-button";
 

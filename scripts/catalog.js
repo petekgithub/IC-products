@@ -7,26 +7,33 @@ import {
 
 // Selectors
 const productContainer = document.querySelector("#products");
-const logoEl = document.querySelector("logo");
-const footerEl = document.querySelector("footer");
-const titleEl = document.querySelector("title");
+const logoEl = document.getElementById("logo");
+const footerEl = document.getElementById("footer");
+const titleEl = document.getElementById("title");
 
 // Render product list
 const renderProductList = (data) => {
   productContainer.innerHTML = "";
 
   data.forEach((item) => {
-    // Create img element
 
+    // Create img element
     const imageContainer = document.createElement("div");
     imageContainer.classList.add("image-container");
-
-    const productImg = document.createElement("img");
-    productImg.src = item.img;
-    productImg.alt = "product img";
-
-    // append img to imageContainer
-    imageContainer.appendChild(productImg);
+    
+    for (let k=0; k<item.img.length; k++ ) {
+      const productImg = document.createElement("img");
+      if ( k===0 ) { 
+        productImg.src = item.img[k];
+        productImg.alt = "product img";
+      }
+  
+      // append img to imageContainer
+      imageContainer.appendChild(productImg);
+      // Break the loop after appending the first image
+      break;
+  }
+    
 
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/productDetail-module.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <title>Product Detail Page</title>
+    <script src="/scripts/detail.js" defer type="module"></script>
+  </head>
+
+  <body class="container">
+    <header class="header">
+      <div class="header-inner">
+        <img id="logo" src="" alt="cat logo" />
+        <div class="back-button">
+          <button id="backBtn">< Back</button>
+        </div>
+        <div class="line"></div>
+      </div>
+    </header>
+
+    <main id="product-container" class="container flex-container">
+      <section class="product-image-section">
+        <div id="main_pictures"></div>
+        <div class="text-right" id="main_pictures_buttons"></div>
+      </section>
+      <section class="product-details-section">
+        <div id="product-details"></div>
+        <div class="button-container">
+          <div class="button-text">Inquire about availability</div>
+        </div>
+      </section>
+    </main>
+    <div class="line"></div>
+    <footer id="footer"></footer>
+  </body>
+</html>
