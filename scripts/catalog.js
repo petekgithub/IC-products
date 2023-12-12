@@ -7,9 +7,9 @@ import {
 
 // Selectors
 const productContainer = document.querySelector("#products");
-const logoEl = document.getElementById("logo");
-const footerEl = document.getElementById("footer");
-const titleEl = document.getElementById("title");
+const logoEl = document.querySelector("logo");
+const footerEl = document.querySelector("footer");
+const titleEl = document.querySelector("title");
 
 // Render product list
 const renderProductList = (data) => {

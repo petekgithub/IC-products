@@ -8,9 +8,9 @@ import { createSlider } from "./slider.js";
 
 // Selectors
 const productContainer = document.querySelector("#product-details");
-const logoEl = document.getElementById("logo");
-const footerEl = document.getElementById("footer");
-const backBtn = document.getElementById("backBtn");
+const logoEl = document.querySelector("#logo");
+const footerEl = document.querySelector("#footer");
+const backBtn = document.querySelector("#backBtn");
 
 const renderProductDetails = (data) => {
   productContainer.innerHTML = "";
