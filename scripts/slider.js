@@ -10,11 +10,11 @@ export const createSlider = (data, targetImage, targetButtons) => {
     pictureElement.classList.add("slider-picture", "none");
     pictureElement.setAttribute("data-index", index);
 
-    
     const buttonElement = document.createElement("button");
     buttonElement.classList = "slider-button";
 
-    buttonElement.addEventListener("click", () => {
+    buttonElement.addEventListener("click", (event) => {
+      event.preventDefault();
       if (buttonElement.classList.contains("active")) return;
 
       document

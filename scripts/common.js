@@ -1,5 +1,3 @@
-// necessary functions and constants from this module.
-
 // constants
 export const productID = new URL(window.location.href).searchParams.get("id");
 export const currentPage =
@@ -10,9 +8,7 @@ const articleId = new URL(window.location.href).searchParams.get("id");
 export const API_HEADER_URL =
   "https://www.includecore.com/api/projects/4854/globals/7319-globals";
 
-//export const API_DETAILS_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products/entries/id=${productID}`;
-export const API_DETAILS_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products/entries/9342`;
-
+export const API_DETAILS_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products/entries/${productID}`;
 export const API_PRODUCTS_URL = `https://www.includecore.com/api/projects/4854/databases/7334-Products?pageSize=6&page=${currentPage}`;
 
 // Fetch data from API

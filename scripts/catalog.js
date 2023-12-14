@@ -5,6 +5,8 @@ import {
   fetchData,
 } from "./common.js";
 
+// HERE //
+
 // Selectors
 const productContainer = document.querySelector("#products");
 const logoEl = document.getElementById("logo");
@@ -16,30 +18,29 @@ const renderProductList = (data) => {
   productContainer.innerHTML = "";
 
   data.forEach((item) => {
-
     // Create img element
     const imageContainer = document.createElement("div");
     imageContainer.classList.add("image-container");
-    
-    for (let k=0; k<item.img.length; k++ ) {
+
+    for (let k = 0; k < item.img.length; k++) {
       const productImg = document.createElement("img");
-      if ( k===0 ) { 
+      if (k === 0) {
         productImg.src = item.img[k];
         productImg.alt = "product img";
       }
-  
+
       // append img to imageContainer
       imageContainer.appendChild(productImg);
       // Break the loop after appending the first image
       break;
-  }
-    
+    }
 
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
 
     // click event for each product card
-    productCard.addEventListener("click", () => {
+    productCard.addEventListener("click", (event) => {
+      event.preventDefault();
       window.location.href = `/productDetail.html?id=${item.id}`;
     });
 

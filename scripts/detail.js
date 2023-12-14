@@ -68,10 +68,15 @@ const loadDetails = async () => {
 };
 
 // Event listener for the back button
-backBtn.addEventListener("click", () => {
+backBtn.addEventListener("click", (event) => {
   // Navigate to the productCatalog.html page
+  event.preventDefault();
   window.location.href = "/productCatalog.html";
 });
+
+{
+  /* <a href="/productCatalog.html">< Back </a> */
+}
 
 // Load header data
 const loadHeader = async () => {
