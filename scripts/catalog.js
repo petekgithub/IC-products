@@ -5,8 +5,6 @@ import {
   fetchData,
 } from "./common.js";
 
-// HERE //
-
 // Selectors
 const productContainer = document.querySelector("#products");
 const logoEl = document.getElementById("logo");
